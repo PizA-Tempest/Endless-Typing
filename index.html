@@ -4,27 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Endless Typing</title>
-  <meta name="description" content="Just type. There is no end." />
+  <meta name="description" content="Type the endless stream of words. There is no end." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <main class="wrap">
     <header class="top">
       <h1>Endless Typing</h1>
-      <button id="themeToggle" type="button" aria-label="Toggle dark / light theme">◐</button>
+      <div class="actions">
+        <div class="stats" aria-live="polite">
+          <span id="wpm">0 wpm</span>
+          <span aria-hidden="true">·</span>
+          <span id="acc">100% acc</span>
+        </div>
+        <button id="restart" type="button" aria-label="Restart">⟳</button>
+        <button id="themeToggle" type="button" aria-label="Toggle dark / light theme">◐</button>
+      </div>
     </header>
 
-    <p class="hint">Start typing anything you want… The text continues as long as you do.</p>
-
-    <label class="sr-only" for="pad">Typing area</label>
-    <textarea id="pad" placeholder="Start typing…" autofocus spellcheck="false"></textarea>
-
-    <footer class="stats" aria-live="polite">
-      <span id="wordCount">0 words</span>
-      <span aria-hidden="true">·</span>
-      <span id="charCount">0 chars</span>
-    </footer>
+    <div id="board" class="board">
+      <div id="words" class="words"></div>
+      <div id="focusHint" class="focus-hint hidden">Click here to keep typing</div>
+    </div>
+    <p class="hint">Type the words as they come. Mistakes are marked, the stream never ends.</p>
   </main>
+
+  <!-- Hidden input captures typing on desktop + mobile keyboards -->
+  <input
+    id="hidden"
+    class="hidden-input"
+    type="text"
+    autocomplete="off"
+    autocapitalize="off"
+    autocorrect="off"
+    spellcheck="false"
+    aria-label="Typing input"
+  />
 
   <script src="app.js"></script>
 </body>
