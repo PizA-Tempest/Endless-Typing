@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Endless Typing</title>
+  <meta name="description" content="Just type. There is no end." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="top">
+      <h1>Endless Typing</h1>
+      <button id="themeToggle" type="button" aria-label="Toggle dark / light theme">◐</button>
+    </header>
+
+    <p class="hint">Start typing anything you want… The text continues as long as you do.</p>
+
+    <label class="sr-only" for="pad">Typing area</label>
+    <textarea id="pad" placeholder="Start typing…" autofocus spellcheck="false"></textarea>
+
+    <footer class="stats" aria-live="polite">
+      <span id="wordCount">0 words</span>
+      <span aria-hidden="true">·</span>
+      <span id="charCount">0 chars</span>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
